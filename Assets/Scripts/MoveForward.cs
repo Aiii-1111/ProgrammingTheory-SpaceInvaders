@@ -5,12 +5,6 @@ public class MoveForward : MonoBehaviour
     [SerializeField] private float spd;
     [SerializeField] private float yLimit;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -27,10 +21,12 @@ public class MoveForward : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Destroy the object when it hits an enemy
+        Destroy(gameObject);
+        
+        /*//Destroy the object when it hits an enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 }

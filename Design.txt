@@ -1,0 +1,84 @@
+Space Invaders | Design Doc
+
+
+Game Requirements:
+
+    - top down 2D game
+    - Player (a spaceship) shoots down enemy aliens using bullets
+    - if an enemy bullet hits the player, 1 life (10 hp) is lost 
+    - player has 3 lives (30 hp)
+    - game lasts until player loses all lives
+
+    - Enemy spaceships spawn in waves of 10
+    - each wave enemy hp increases (by 10)
+    - enemy aliens also shoot bullets which player must dodge
+
+    - bullets each do 10 dmg (For enemy and player)
+
+    - Main Menu
+        - start button
+
+Extra Features:
+
+    - Powerups
+        - Double dmg
+        - Double player spd
+    - timer to show how long the game last
+    - high score display on Main Menu
+    - Varied difficulty lvls
+
+Scripts/variables/methods needed:
+
+    - PlayerController (allow the player to along x axis and shoot bullets):
+        - float spd
+        - float xRange
+        - float hp
+        - Rigidbody playerRb
+        
+        - MovePlayer()
+        - LaunchBullet()
+    
+    - EnemyController (make enemies attack the player and die)
+        - float hp
+        - Rigidbody playerRb
+
+        - LaunchBullet()
+
+    - MoveForward (allow movement for bullets launched by the player & enemies and destroy them when they leave the screen or collide with player/enemy)
+        - float spd
+        - float yRange
+
+    - GameManager (spawn a new wave when the previous wave is defeated and end the game when the player runs out of hp)
+        - int currentWave
+        - int playerHp
+        - int enemyHp
+        - bool isGameActive
+
+        - GenerateSpawnPos()
+        - SpawnNewWave()
+        - StartGame()
+        - GameOver()
+
+    - MainMenu (provide functionality to any buttons on the start screen)
+        - GameManager.StartGame()
+
+Implmenting OOP:
+
+    - Inheritance
+        - The player and the enemy share many properties (eg hp and bullet launching) - they can inherit from a parent "Spaceship" class
+        - 
+    
+    - Polymorphism
+        - The player and enemy will need 
+
+    - Encapsulation
+        - Keep methods & variables private where possible, implementing getters and setters where they need to be accessed from other classes
+
+    - Abstraction
+        - See section above
+
+Sprites / assets needed:
+    - Player
+    - Enemy
+    - Bullet
+    - Background (Space)
