@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-    //[SerializeField] private float hp = 50;
+    public float hp;
 
     public GameObject bulletPrefab;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
 
     public virtual void LaunchBullet()
     {

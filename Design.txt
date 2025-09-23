@@ -34,13 +34,14 @@ Scripts/variables/methods needed:
         - float xRange
         - float hp
         - Rigidbody playerRb
+        - GameManager gameManager
         
         - MovePlayer()
         - LaunchBullet()
     
     - EnemyController (make enemies attack the player and die)
         - float hp
-        - Rigidbody playerRb
+        - Rigidbody enemyRb
 
         - LaunchBullet()
 
@@ -48,14 +49,16 @@ Scripts/variables/methods needed:
         - float spd
         - float yRange
 
+        - float direction (changes based on if enemy/player bullet)
+
     - GameManager (spawn a new wave when the previous wave is defeated and end the game when the player runs out of hp)
         - int currentWave
+        - int enemiesPerWave
         - int playerHp
         - int enemyHp
         - bool isGameActive
 
-        - GenerateSpawnPos()
-        - SpawnNewWave()
+        - SpawnWave()
         - StartGame()
         - GameOver()
 
@@ -69,7 +72,7 @@ Implmenting OOP:
         - 
     
     - Polymorphism
-        - The player and enemy will need 
+        - The player and enemy will need to override the LaunchBullet so the bullet spawns at the correct location 
 
     - Encapsulation
         - Keep methods & variables private where possible, implementing getters and setters where they need to be accessed from other classes
