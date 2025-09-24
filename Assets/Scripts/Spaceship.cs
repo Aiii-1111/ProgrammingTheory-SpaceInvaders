@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-    public float hp;
+    public int baseHp;
 
     public GameObject bulletPrefab;
 

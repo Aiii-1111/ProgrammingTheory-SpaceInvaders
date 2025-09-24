@@ -6,10 +6,10 @@ Game Requirements:
     - top down 2D game
     - Player (a spaceship) shoots down enemy aliens using bullets
     - if an enemy bullet hits the player, 1 life (10 hp) is lost 
-    - player has 3 lives (30 hp)
+    - player has 5 lives (50 hp)
     - game lasts until player loses all lives
 
-    - Enemy spaceships spawn in waves of 10
+    - Enemy spaceships spawn in waves of 8
     - each wave enemy hp increases (by 10)
     - enemy aliens also shoot bullets which player must dodge
 
@@ -54,8 +54,6 @@ Scripts/variables/methods needed:
     - GameManager (spawn a new wave when the previous wave is defeated and end the game when the player runs out of hp)
         - int currentWave
         - int enemiesPerWave
-        - int playerHp
-        - int enemyHp
         - bool isGameActive
 
         - SpawnWave()
@@ -69,7 +67,6 @@ Implmenting OOP:
 
     - Inheritance
         - The player and the enemy share many properties (eg hp and bullet launching) - they can inherit from a parent "Spaceship" class
-        - 
     
     - Polymorphism
         - The player and enemy will need to override the LaunchBullet so the bullet spawns at the correct location 

@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class PlayerController : Spaceship
+public class PlayerController : Spaceship //INHERITANCE
 {
-    [SerializeField] private float spd;
-    [SerializeField] private float xRange;
-    //private int hp = 50;
-
+    private float spd = 14.0f;
+    private float xRange = 8.35f;
     private float input;
 
     private Rigidbody playerRb;
@@ -16,6 +14,8 @@ public class PlayerController : Spaceship
     {
         playerRb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
+        gameManager.healthText.text = "Hp: " + baseHp;
     } 
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class PlayerController : Spaceship
 
     }
 
-    void MovePlayer()
+    void MovePlayer() //ABSTRACTION
     {
         //take player input and move 
         input = Input.GetAxis("Horizontal");
@@ -52,11 +52,15 @@ public class PlayerController : Spaceship
 
     void OnTriggerEnter(Collider other)
     {
-        hp -= 10;
-        if (hp <= 0)
+        //Update hp & check game over
+        baseHp -= 10;
+        if (baseHp <= 0)
         {
             gameManager.GameOver();
             Debug.Log("Game Over");
         }
+
+        //Update UI
+        gameManager.healthText.text = "Hp: " + baseHp;
     }
 }
